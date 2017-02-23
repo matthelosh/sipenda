@@ -1,0 +1,173 @@
+
+@font-face {
+  font-family:  'sigmarOne';
+  src: url('/static/fonts/Kanit-Black.ttf');
+}
+@font-face{
+  font-family: 'Mallana';
+  src: url('/static/fonts/Mallanna-Regular.ttf');
+}
+h1{
+    margin:0 !important;
+}
+
+
+  .page{
+      /*position: relative;*/
+      min-height:100vh;
+      height: auto;
+      width: 100%;
+      box-sizing: border-box;
+      /*padding-top: 20px;*/
+      z-index: 1;
+
+  }
+
+  #landing{
+
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      top: 0;
+      left: 0;
+      background: url('/static/img/bg_land.jpg');
+      background-size: 100% auto;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      z-index: 1;
+  }
+
+  #landing .container{
+      background: rgba(87,170,200, 0.7);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      margin: 0!important;
+      width: 100%;
+      /*padding: 50px;*/
+  }
+  #landing .container h1{
+    font-family: 'sigmarOne';
+    position: absolute;
+    margin: 100px auto;
+    top: 10%;
+    left: 10%;
+    text-align: center;
+  }
+  #landing .container h1 small{
+    color: #eee;
+    font-family: 'Mallana';
+  }
+  .preForm{
+    margin-top: 95%;
+  }
+  .preForm h2{
+    font-size: 1em;
+  }
+  .preForm .form-control:focus{
+    box-shadow: 0 0 5px rgb(234, 168, 168)!important;
+    background-color: rgba(175, 112, 87, 0.77);
+    color: #eee;
+  }
+  #frmDaftar{
+    /*display: none;*/
+    width: 100%;
+    min-height: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: url('/static/img/bg_baris.jpg');
+    background-size: 100% auto;
+    background-attachment:scroll;;
+    background-repeat: no-repeat;
+    z-index: 1;
+    overflow: hidden;
+    border-top: 2px dashed #104b61;
+  }
+  #frmDaftar .container{
+    background: rgba(205, 220, 57, 0.72);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    position: relative;
+    margin: 0!important;
+    width: 100%;
+    padding: 20px 5px;
+  }
+  #frmDaftar h1{
+    margin-bottom: 20px !important;
+  }
+
+  #frmDaftar .panel{
+    box-sizing: border-box;
+  }
+  #frmDaftar .panel .panel-body .row{
+    margin: 0!important;
+    padding: 5px!important;
+  }
+
+#frmDaftar .panel{
+  background: rgba(247, 240, 230, 0.9);
+  border: dashed 2px rgba(102, 102, 102, 0.44);
+}
+  /*#fieldPribadi input,*/
+  #panelPribadi{
+    opacity: 0;
+    transform: translateX(150px);
+    transition: all 0.35s ease-in-out;
+    width: 50%;
+    margin: 3% auto;
+    background: transparent;
+    border: 1px solid #ccc;
+    /*overflow: hidden;*/
+  }
+
+  #panelPribadi .panel-body{
+    min-height: auto;
+  }
+  #panelPribadi .form-group{
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 1s ease-in-out;
+  }
+  #panelPribadi .is-showing{
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .panel-show{
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+  #profilKomkal{
+    /*background: rgba(66,143,144,1);*/
+    background: linear-gradient(#6b9596, #428f90);
+    background: -webkit-linear-gradient(#6b9596, #428f90);
+    padding: 0 50px 50px 50px;
+    box-sizing: border-box;
+    border-top: 2px dashed #ccc;
+
+  }
+  #fieldPribadi{
+    position: relative;
+  }
+  #fieldOrtu, #fieldAkademik{
+    position: relative;
+    display: none;
+    color: #999;
+  }
+
+  .box-komkal{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .box-komkal img{
+
+  }
+@media(max-width: 768px){
+  #panelPribadi{
+    width: 100%;
+  }
+}

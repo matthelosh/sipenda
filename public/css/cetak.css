@@ -1,0 +1,28 @@
+body{
+  font-size: 10pt;
+  color: red;
+}
+
+.btn{
+  display: none;
+}
+a[href]:after {
+  content: none !important;
+}
+.table-page{
+  padding: 0;
+
+}
+
+
+#tabel{
+  margin-left: 20px;
+}
+
+table thead tr th,
+table tbody tr td{
+  padding: 3px;
+}
+.no-print{
+  display: none;
+}

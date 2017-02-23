@@ -1,0 +1,45 @@
+extends template
+block content
+    .container.table-box
+      .table-page(style="padding: 20px")
+        .row
+          .container
+            h1.text-center
+                |   #{title}
+
+            .btn-group(style="margin-bottom: 10px")
+              a.btn.btn-primary(href="/") Beranda
+              button.btn.btn-success#printDiv(type="button") Cetak
+        .row
+          .table-responsive#tabel
+            table.table.table-responsive.table-bordered
+                thead
+                    tr
+                        th No
+                        th No. Registrasi
+                        th Komp. Keahlian
+                        th Nama
+                        th NISN
+                        th JK
+                        th Nama Ayah
+                        th Asal Sekolah
+                        th Nilai Akhir
+                tbody
+                    h1 halo
+                    - var i = 1
+                    each siswa, i in data
+                      tr
+                        td #{i+1}
+                        td #{siswa.noReg}
+                        td #{siswa.Jurusan[0].namaKomkal}
+                        td
+                          a(href="siswa/detil/" +siswa._id) <i class="fa fa-user"></i> #{siswa.nama} &nbsp;
+                          a(href="siswa/del/"  +siswa._id)
+                            i.fa.fa-trash.text-right
+
+                          a(href="siswa/edit/" +siswa._id) &nbsp; <i class="fa fa-pencil"></i>
+                        td #{siswa.nisn}
+                        td #{siswa.jk}
+                        td #{siswa.ayah.namaAyah}
+                        td
+                        td

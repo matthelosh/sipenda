@@ -1,0 +1,145 @@
+extends template
+block content
+
+  .formPage
+    .container
+      h1.text-center #{title}
+      .col-sm-10.formPaper.col-sm-offset-1
+        form.form#frmAddSiswa(role="role", action='/siswa', method="post")
+          fieldset#fieldPribadi
+            legend Data Pribadi
+            .row
+              .form-group
+                label.col-sm-3(for="nama") Nama Lengkap
+                .col-sm-8
+                  input.form-control.req#nama(type="text", placeholder="Nama Terang", name="nama")
+                .col-sm-1
+                  i.fa.fa-check-circle.fa-2x(style="color: ")
+            .row
+              .form-group
+                label.col-sm-3(for="nisn") NISN
+                .col-sm-8
+                  input.form-control.req#nisn(type="text", placeholder="NISN", name="nisn")
+                .col-sm-1
+            .row
+              .form-group
+                label.col-sm-3(for="komkal") Kompetensi Keahlian
+                .col-sm-8
+                  select.form-control.req#komkal(name="komkal")
+                    option(value="0") Pilih Kompetensi Keahlian
+                    option(value="TKJ") Teknik Komputer dan Jaringan (TKJ)
+                    option(value="TKR") Teknik Kendaraan Ringan (TKR)
+                    option(value="OTR") Ototronik (OTR)
+                    option(value="MM") Multimedia(MM)
+                    option(value="TSM") Teknik Sepeda Motor (TSM)
+
+                .col-sm-1
+            .row
+              .form-group
+                label.col-sm-3(for="nik") Nomor Induk Kependudukan (NIK)
+                .col-sm-8
+                  input.form-control.req#nik(type="text", placeholder="Nomor Induk Keendudukan (NIK)", name="nik")
+            .row
+              .form-group
+                label.col-sm-3(for="jk") Jenis Kelamin
+                .col-sm-8
+                  select.form-control.req#jk
+                    option(value="0") Pilih Jenis Kelamin
+                    option(value="Laki-laki") Laki-laki
+                    option(value="Perempuan") Perempuan
+            .row
+              .form-group
+                label.col-sm-3(for="ttl") Tempat, Tanggal Lahir
+                .col-sm-4#ttl
+                  input.form-control.req#tmptLahir(type="text", placeholder="Tempat Lahir", name="tmptLahir")
+                .col-sm-4
+                  input.form-control.req#tglLahir(type="date")
+            .row
+              .form-group
+                label.col-sm-3(for="agama") Agama
+                .col-sm-8
+                  select.form-control.req#agama(name="agama")
+                    option(value="0") Pilih Agama
+                    option(value="Islam") Islam
+                    option(value="Protestan") Protestan
+                    option(value="Katolik") Katolik
+                    option(value="Hindu") Hindu
+                    option(value="Budha") Budha
+                    option(value="Konghuchu") Konghuchu
+            .row
+              .form-group
+                label.col-sm-3(for="alamat") Alamat
+                .col-sm-8
+                  input.form-control.req#alamat(type="text", name="alamat",placeholder="Alamat")
+            .row
+              .form-group
+                label.col-sm-3(for="rt") RT
+                .col-sm-2
+                  input.form-control.req#rt(type="text", name="rt",placeholder="RT")
+                .col-sm-2
+                  input.form-control.req#rw(type="text", name="rw",placeholder="RW")
+            .row
+              .form-group
+                label.col-sm-3(for="desa") Desa/Kelurahan
+                .col-sm-8
+                  input.form-control.req#desa(type="text", name="desa",placeholder="Desa / Kelurahan")
+            .row
+              .form-group
+                label.col-sm-3(for="kec") Kecamatan
+                .col-sm-4
+                  input.form-control.req#kec(type="text", name="kec",placeholder="Kecamatan")
+            .row
+              .form-group
+                label.col-sm-3(for="kodePos") Kode Pos
+                .col-sm-4
+                  input.form-control.req#kodePos(type="text", name="kodePos",placeholder="Kode Pos")
+            .row
+              .form-group
+                label.col-sm-3(for="kota") Kota/ Kabupaten
+                .col-sm-4
+                  input.form-control.req#kota(type="text", name="kota",placeholder="Kota / Kabupaten")
+            .row
+              .form-group
+                label.col-sm-3(for="domisili") Tempat Tinggal
+                .col-sm-8
+                  select.form-control#domisili(name="domisili")
+                    option(value="0") Tinggal bersama/di ..
+                    option(value="Orang Tua") Orang Tua
+                    option(value="Wali") wali
+                    option(value="Asrama/Ponpes") Asrama / Ponpes
+                    option(value="Kost") Kost / Kontrakan
+                    option(value="Lainnya") Lainnya
+            .row
+              .form-group
+                label.col-sm-3(for="transportasi") Transportasi
+                .col-sm-8
+                  select.form-control#transportasi(name="transportasi")
+                    option(value="0") Transportasi ke Sekolah
+                    option(value="Jalan Kaki") Jalan Kaki
+                    option(value="Sepeda") Bersepeda
+                    option(value="Sepeda Motor") Sepeda Motor
+                    option(value="Mobil Pribadi") Mobil Pribadi
+                    option(value="Diantar") Diantar
+                    option(value="Angkot") Angkot
+                    option(value="Lainnya") Lainnya
+            .row
+              .form-group
+                label.col-sm-3(for="hp") No. Telp/HP
+                .col-sm-4
+                  input.form-control.req#hp(type="text", name="hp",placeholder="No. HP")
+            .row
+              .form-group
+                label.col-sm-3(for="email") Alamat Email
+                .col-sm-4
+                  input.form-control.req#email(type="email", name="email",placeholder="Alamat Email")
+            .row
+              .form-group
+                label.col-sm-3(for="isKps")
+                  input#isKps(type="checkbox", name="isKps")
+                  | &nbsp; Isi jika menerima jaminan sosial.
+                .col-sm-4
+                  input.form-control.req#kps(type="text", name="kps",placeholder="Isi dengan nomor jaminan sosial", disabled)
+            .row
+              .form-group
+                .col-sm-12
+                  button.btn.btn-primary.center-block(type="submit") Simpan

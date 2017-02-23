@@ -1,0 +1,43 @@
+.detilPage{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #5089a5;
+}
+
+.content{
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.detilPage .content{
+  padding: 20px;
+}
+
+.detilPage .content .photoFrame{
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius:50%;
+}
+.detilPage .content .photoFrame img{
+  width: 150px;
+  height: auto;
+}
+.detilPage .content .photoDesc{
+  height: 50px;
+  width: auto;
+  background: black;
+  position: absolute;
+  padding: 0 10px;
+  box-shadow: 10px 7px 5px rgba(0,0,0,0.6);
+}
+.detilPage .content .photoDesc h3{
+  line-height: 25px;
+  text-align: center;
+  border: dashed 1px #eee;
+  margin-top: 5px;
+  padding: 5px 10px;
+}

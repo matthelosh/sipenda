@@ -1,0 +1,229 @@
+
+@import "form.css";
+@import "detil.css";
+/*@import "home.css";*/
+
+
+body{
+    background: #cccccc;
+    color: #eee;
+    font-family: sans-serif;
+}
+
+a:focus,a:active{
+  outline: none;
+}
+
+/*// Navigasi Samping*/
+.menuTrigger{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+}
+
+.menuTrigger span{
+  margin-top: 25px;
+}
+
+.menuTrigger span, .menuTrigger span:before, .menuTrigger span:after{
+  cursor: pointer;
+  border-radius: 1px;
+  width: 25px;
+  background: #eee;
+  position: absolute;
+  display: block;
+  content: '';
+}
+
+.menuTrigger span:before{
+  top: -10px;
+  height: 3px;
+}
+
+.menuTrigger span:after{
+  bottom: -10px;
+  height: 3px;
+}
+
+.menuTrigger span, .menuTrigger span:before, .menuTrigger span:after{
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.menuTrigger.triggerActive span {
+  background-color: transparent;
+}
+
+.menuTrigger.triggerActive span:before, .menuTrigger.triggerActive span:after {
+  top: 0;
+}
+
+.menuTrigger.triggerActive span:before {
+  transform: rotate(45deg);
+}
+.menuTrigger.triggerActive span:after {
+  transform: rotate(-45deg);
+}
+
+#menuSisi{
+  position: fixed;
+  width: 100px;
+  height: 100vh;
+  /*top: 0;*/
+  right: 0px;
+  margin-right: -100px;
+  background: rgba(10,10,10, 0.85);
+  box-shadow: 3px 0 5px rgba(0,0,0, 0.6);
+  /*display: none;*/
+  z-index: 2;
+  overflow-y: auto;
+  transition: all 0.35s linear;
+}
+
+.show{
+  width: 100px !important;
+  transition: all 0.35s linear;
+  right: 100px !important;
+}
+#menuSisi .logo{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    left: 25px;
+    /*background: pink;*/
+    background-image: url('/static/img/logo.png');
+    background-size: contain;
+}
+
+#menuSisi ul{
+  list-style: none;
+    padding: 75px 0;
+    width: 100px;
+    position: relative;
+}
+
+#menuSisi ul li{
+  display: block;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+#menuSisi ul li:hover{
+    background: #2980b9;
+    color: #fff;
+}
+#menuSisi li a{
+  text-decoration: none;
+  color: #ccc;
+    display: block;
+    padding: 15px 25px;
+    width: 100%;
+    text-align: center;
+}
+#menuSisi li a i{
+    margin: 0 auto;
+}
+
+.navbar{
+  display: none;
+}
+
+.table-box{
+    background: #fff;
+    color: #333;
+    position: relative;
+    padding: 10px;
+    top: 30px;
+}
+
+.panel-primary{
+  top: 50px !important;
+  position: relative;
+  color: #333;
+}
+
+
+.se-pre-con{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom:0;
+  left: 0;
+
+  /*width: 100%;
+  height: 100%;*/
+  z-index: 9999;
+  background: url('/static/img/Preloader_3.gif') center no-repeat #fff;
+}
+
+.noName{
+  display: none;
+  position: absolute;
+  background: #eee;
+  color: red;
+  z-index: 5;
+  width: 100%;
+  padding: 50px;
+  top: 150px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+}
+/*//Form Add Siswa*/
+@media(min-width: 769px){
+
+  #landing h1{
+    font-family: 'sigmarOne';
+    position: absolute;
+    top: 100px;
+    left: 100px;
+  }
+  #landing .preForm h2{
+    font-size: 2em;
+  }
+  #landing .preForm{
+    position: absolute;
+    top: 25%;
+    left: 65%;
+    width: 400px;
+    margin-top: 0;
+    /*background: pink;*/
+  }
+}
+
+
+#table {
+  color: red;
+}
+@media print{
+  .btn{
+    display: none;
+  }
+  a[href]:after {
+    content: none !important;
+  }
+  .table-page{
+    padding: 0;
+
+  }
+
+
+  #tabel{
+    margin-left: 20px;
+  }
+
+  #tabel thead th{
+    color: red;
+  }
+  .no-print{
+    display: none;
+  }
+}

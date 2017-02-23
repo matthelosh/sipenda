@@ -1,0 +1,415 @@
+extends template
+block content
+  .page#landing
+    .container
+      h1 SMKN 10 Malang
+        br
+        | <small>Acanta Widya Satmaka</small>
+
+      .preForm
+        h2 Anda ingin bergabung? Silahkan isi form di bawah ini.
+        form#frmDepan.form(role="form", action="#frmDaftar")
+          .form-group
+            select.form-control#preKomkal(name="preKomkal")
+              option(value="0") Pilih Jurusan yang Anda Sukai
+              each komkal in data
+                option(value=komkal._id) #{komkal.namaKomkal}
+          .form-group
+            input#preNama.form-control.req(type="text", name="preNama", placeholder="Masukkan Nama Anda")
+          .form-group
+            button.btn.btn-lg.btn-success.center-block#goToDaftar(type="submit",href="#frmDaftar") Isikan Data
+
+  .apage#frmDaftar
+    .noName
+      h1 Anda belum memasukkan nama dan Kompetensi Keahlian belum dipilih
+    .container
+      h1(style="text-align:center") Formulir Pendafaran
+      h3(style="text-align:center; color: #237890") <b>PPDB</b><span style="font-style:italic; color: #6788aa; font-size: 1.2em">2017</span>
+      form.form#frmAddSiswa(role="form", action="/siswa", method="post")
+        .panel.panel-small#panelPribadi
+          .panel-heading
+            //- h3(style="color: #666") Data Pribadi <i class="fa fa-user fa-1x"></i>
+            //- p(stylers="color: #aa6666") Masukkan Data
+            //- p.info.pull-right Silahkan masukkan informasi Pribadi Anda
+          .panel-body
+            //- .row
+            //- input#newReg.form-control(type="hidden", name="newReg")
+            fieldset#fieldPribadi
+              legend
+                h3(style="color: #666") Data Pribadi <i class="fa fa-user fa-1x"></i>
+              input#komkal.form-control(type="hidden", name="komkal")
+              input#kode.form-control(type="hidden", name="kode")
+              .row
+                .form-group.col-sm-8
+                  input.form-control#nama(type="text", name="nama", placeholder="Nama Lengkap", required)
+
+                .form-group.col-sm-4
+                  input.form-control.req#nisn(type="text", name="nisn", maxlength= 10, placeholder="Masukkan NISN", required)
+              .row
+                .form-group.col-sm-4
+                  select.form-control.req#jk(name="jk", required )
+                    option(value="") Pilih JK
+                    option(value="Laki-laki") Laki-laki
+                    option(value="Perempuan") Perempuan
+
+                .form-group.col-sm-8
+                  input.form-control#nik(type="text", name="nik", maxlength= 16, placeholder="Nomor Induk Kependudukan" )
+
+              .row
+                .form-group.col-sm-8
+                  input.form-control.req#tmptLahir(type="text", name="tmptLahir", placeholder="Tempat Lahir" , required )
+
+                .form-group.col-sm-4
+                  input.form-control.req#tglLahir(type="date", name="tglLahir", required )
+
+              .row
+                .form-group.col-sm-4
+                  select.form-control.req#agama(name="agama", required )
+                    option(value="") Agama
+                    option(value="Islam") Islam
+                    option(value="Protestan") Protestan
+                    option(value="Katolik") Katolik
+                    option(value="Hindu") Hindu
+                    option(value="Budha") Budha
+                    option(value="Konghuchu") Konghuchu
+
+                .form-group.col-sm-8
+                  input.form-control.req#alamat(type="text", name="alamat", placeholder="Alamat Jalan / Dusun", required )
+
+              .row
+                .form-group.col-sm-2
+                  input.form-control#rt(type="number", name="rt", placeholder="RT")
+                .form-group.col-sm-2
+                  input.form-control#rw(type="number", name="rw", placeholder="RW")
+                .form-group.col-sm-8
+                  input.form-control#desa(type="text", name="desa", placeholder="Desa / Kelurahan", required )
+
+              .row
+                .form-group.col-sm-8
+                  input.form-control.req#kec(type="text", name="kec", placeholder="Kecamatan", required )
+
+                .form-group.col-sm-4
+                  input.form-control#kodePos(type="text", name="kodePos", placeholder="Kode Pos")
+
+              .row
+                .form-group.col-sm-6
+                  input.form-control.req#kota(type="text", name="kota", placeholder="Kota / Kabupaten", required )
+
+                .form-group.col-sm-6
+                  select.form-control.req#domisili(name="domisili", required )
+                    option(value="") Tempat Tinggal
+                    option(value="Bersama OrangTua") Bersama Orang Tua
+                    option(value="Bersama Wali / Kerabat") Bersama Wali / Kerabat
+                    option(value="Asrama / Ponpes") Asrama / Ponpes
+                    option(value="Kost / Kontrakan") Kost / Kontrakan
+                    option(value="Lainnya") Lainnya
+
+              .row
+                .form-group.col-sm-6
+                  select.form-control.req#transportasi(name="transportasi", required )
+                    option(value="") Moda Transportasi
+                    option(value="Jalan Kaki") Jalan Kaki
+                    option(value="Sepeda Motor") Sepeda Motor
+                    option(vlue="Diantar") Diantar
+                    option(value="Angkutan Umum") Angkutan Umum
+                    option(value="Lainnya") Lainnya
+
+                .form-group.col-sm-6
+                  input.form-control#hp(type="text", name="hp", placeholder="No. Telp./HP")
+
+              .row
+                .form-group.col-sm-7
+                  input#isKps(type="checkbox")
+                  label(for="isKps", style="color:#666; margin: 0 !important") &nbsp;Isi jika memiliki Kartu Jaminan Sosial
+
+                .form-group.col-sm-5
+                  input.form-control#kps(type="text", name="kps", placeholder="Isikan No. Jaminan Sosial", disabled)
+
+            fieldset#fieldOrtu
+              legend
+                h3(style="color: #666") Data Orang Tua <i class="fa fa-users fa-1x"></i>
+              .row
+                .form-group.col-sm-8
+                  input.form-control.req#namaAyah(type="text", name="namaAyah", placeholder="Nama Ayah", required )
+
+                .form-group.col-sm-4
+                  input.form-control.req#tglLhrAyah(type="date", name="tglLhrAyah", required )
+
+              .row
+                .form-group.col-sm-4
+                  select.form-control#jobAyah(name="jobAyah", required )
+                    option(value="") Pekerjaan ayah
+                    option(value="PNS") PNS / TNI
+                    option(value="Swasta") Swasta
+                    option(value="Wiraswasta") Wiraswasta
+                    option(value="Tani") Tani
+                    option(value="Pedagang") Pedagang
+                    option(value="Karyawan Swasta") Karyawan Swasta
+                    option(value="Buruh") Buruh Harian Lepas
+                    option(value="Lainnya") Lainnya
+                    option(value="Meninggal Dunia") Meninggal Dunia
+                .form-group.col-sm-4
+                  select.form-control#pendAyah(name="pendAyah")
+                    option(value="") Pendidikan Terakhir
+                    option(value="TK") TK/Sederajat
+                    option(value="SD") SD/Sederajat
+                    option(value="SMP") SMP/Sederajat
+                    option(value="SMA") SMA/Sederajat
+                    option(value="D1") D1
+                    option(value="D2") D2
+                    option(value="D3") D3
+                    option(value="D4") D4
+                    option(value="S1") S1
+                    option(value="S2") S2
+                    option(value="S3") S3
+                    option(value="Lainnya") Lainnya
+
+              hr(style="border-top: 1px solid #aaa")
+
+              .row
+                .form-group.col-sm-8
+                  input.form-control.req#namaIbu(type="text", name="namaIbu", placeholder="Nama Ibu", required )
+
+                .form-group.col-sm-4
+                  input.form-control.req#tglLhrIbu(type="date", name="tglLhrIbu", required )
+
+              .row
+                .form-group.col-sm-4
+                  select.form-control#jobIbu(name="jobIbu")
+                    option(value="0") Pekerjaan Ibu
+                    option(value="PNS") PNS / TNI
+                    option(value="Swasta") Swasta
+                    option(value="Wiraswasta") Wiraswasta
+                    option(value="Tani") Tani
+                    option(value="Pedagang") Pedagang
+                    option(value="Karyawan Swasta") Karyawan Swasta
+                    option(value="Buruh") Buruh Harian Lepas
+                    option(value="Lainnya") Lainnya
+                    option(value="Meninggal Dunia") Meninggal Dunia
+                .form-group.col-sm-4
+                  select.form-control#pendIbu(name="pendIbu")
+                    option(value="0") Pendidikan Terakhir
+                    option(value="TK") TK/Sederajat
+                    option(value="SD") SD/Sederajat
+                    option(value="SMP") SMP/Sederajat
+                    option(value="SMA") SMA/Sederajat
+                    option(value="D1") D1
+                    option(value="D2") D2
+                    option(value="D3") D3
+                    option(value="D4") D4
+                    option(value="S1") S1
+                    option(value="S2") S2
+                    option(value="S3") S3
+                    option(value="Lainnya") Lainnya
+
+
+              hr(style="border-top: 1px solid #aaa")
+
+              .row
+                .form-group.col-sm-4
+                  input.form-control#namaWali(type="text", name="namaWali", placeholder="Nama Wali")
+
+                .form-group.col-sm-4
+                  select.form-control#hubWali(name="hubWali")
+                    option(value="0") Hubungan Wali
+                    option(value="Kakek/Nenek") Kakek/Nenek
+                    option(value="Paman/Bibi") Paman/Bibi
+                    option(value="Kakak/Adik") Kakak/Adik
+                    option(value="Orang Tua Asuh") Orang Tua Asuh
+
+                .form-group.col-sm-4
+                  input.form-control#tglLhrWali(type="date", name="tglLhrWali")
+
+              .row
+                .form-group.col-sm-4
+                  select.form-control#jobWali(name="jobWali")
+                    option(value="0") Pekerjaan Wali
+                    option(value="PNS") PNS / TNI
+                    option(value="Swasta") Swasta
+                    option(value="Wiraswasta") Wiraswasta
+                    option(value="Tani") Tani
+                    option(value="Pedagang") Pedagang
+                    option(value="Karyawan Swasta") Karyawan Swasta
+                    option(value="Buruh") Buruh Harian Lepas
+                    option(value="Lainnya") Lainnya
+                    option(value="Meninggal Dunia") Meninggal Dunia
+                .form-group.col-sm-4
+                  select.form-control#pendWali(name="pendWali")
+                    option(value="0") Pendidikan Terakhir
+                    option(value="TK") TK/Sederajat
+                    option(value="SD") SD/Sederajat
+                    option(value="SMP") SMP/Sederajat
+                    option(value="SMA") SMA/Sederajat
+                    option(value="D1") D1
+                    option(value="D2") D2
+                    option(value="D3") D3
+                    option(value="D4") D4
+                    option(value="S1") S1
+                    option(value="S2") S2
+                    option(value="S3") S3
+                    option(value="Lainnya") Lainnya
+
+
+            fieldset#fieldAkademik
+              legend
+                h3(style="color: #666") Data Akademik <i class="fa fa-book fa-1x"></i>
+
+              .row
+                .form-group.col-sm-6
+                  input.form-control.req#asalSekolah(type="text", name="asalSekolah", placeholder="Nama Sekolah Asal", required)
+
+                .form-group.col-sm-3
+                  select.form-control.req#statSekolah(name="statSekolah", required)
+                    option(value="") Status
+                    option(value="Negeri") Negeri
+                    option(value="Swasta") Swasta
+
+                .form-group.col-sm-3
+                  input.form-control.req#thLulus(type="text", name="thLulus", placeholder="Th Lulus", maxlength="4", required)
+
+              .row
+                form-group.col-sm-4
+                  input.form-control.req#noUn(type="text", name="noUn", placeholder="No. UN", required )
+
+                form-group.col-sm-4
+                  input.form-control.req#noIjazah(type="text", name="noIjazah", placeholder="No. Ijazah", required)
+
+                form-group.col-sm-4
+                  input.form-control.req#noSkhun(type="text", name="noSkhun", placeholder="No. SKHUN", required)
+
+              h3 Nilai Raport
+
+              .row
+                h5 Bahasa Indonesia
+                .form-group.col-sm-2
+                  input.form-control.req#id1(type="text", name="id1", placeholder="Sem 1", required)
+                .form-group.col-sm-2
+                  input.form-control.req#id2(type="text", name="id2", placeholder="Sem 2", required)
+                .form-group.col-sm-2
+                  input.form-control.req#id3(type="text", name="id3", placeholder="Sem 3", required)
+                .form-group.col-sm-2
+                  input.form-control.req#id4(type="text", name="id4", placeholder="Sem 4", required)
+                .form-group.col-sm-2
+                  input.form-control.req#id5(type="text", name="id5", placeholder="Sem 5", required)
+                .form-group.col-sm-2
+                  input.form-control.req#idRt(type="text", name="idRt", placeholder="Rerata", required)
+
+              .row
+                h5 Matematika
+                .form-group.col-sm-2
+                  input.form-control.req#mtk1(type="text", name="mtk1", placeholder="Sem 1", required)
+                .form-group.col-sm-2
+                  input.form-control.req#mtk2(type="text", name="mtk2", placeholder="Sem 2", required)
+                .form-group.col-sm-2
+                  input.form-control.req#mtk3(type="text", name="mtk3", placeholder="Sem 3", required)
+                .form-group.col-sm-2
+                  input.form-control.req#mtk4(type="text", name="mtk4", placeholder="Sem 4", required)
+                .form-group.col-sm-2
+                  input.form-control.req#mtk5(type="text", name="mtk5", placeholder="Sem 5", required)
+                .form-group.col-sm-2
+                  input.form-control.req#mtkRt(type="text", name="mtkRt", placeholder="Rerata", required)
+
+              .row
+                h5 IPA
+                .form-group.col-sm-2
+                  input.form-control.req#ipa1(type="text", name="ipa1", placeholder="Sem 1", required)
+                .form-group.col-sm-2
+                  input.form-control.req#ipa2(type="text", name="ipa2", placeholder="Sem 2", required)
+                .form-group.col-sm-2
+                  input.form-control.req#ipa3(type="text", name="ipa3", placeholder="Sem 3", required)
+                .form-group.col-sm-2
+                  input.form-control.req#ipa4(type="text", name="ipa4", placeholder="Sem 4", required)
+                .form-group.col-sm-2
+                  input.form-control.req#ipa5(type="text", name="ipa5", placeholder="Sem 5", required)
+                .form-group.col-sm-2
+                  input.form-control.req#ipaRt(type="text", name="ipaRt", placeholder="Rerata", required)
+
+              .row
+                h5 Bahasa Inggris
+                .form-group.col-sm-2
+                  input.form-control.req#en1(type="text", name="en1", placeholder="Sem 1", required)
+                .form-group.col-sm-2
+                  input.form-control.req#en2(type="text", name="en2", placeholder="Sem 2", required)
+                .form-group.col-sm-2
+                  input.form-control.req#en3(type="text", name="en3", placeholder="Sem 3", required)
+                .form-group.col-sm-2
+                  input.form-control.req#en4(type="text", name="en4", placeholder="Sem 4", required)
+                .form-group.col-sm-2
+                  input.form-control.req#en5(type="text", name="en5", placeholder="Sem 5", required)
+                .form-group.col-sm-2
+                  input.form-control.req#enRt(type="text", name="enRt", placeholder="Rerata", required)
+
+              h3 Nilai Ujian Nasional
+
+              .row
+                .form-group.col-sm-3
+                  input.form-control.req#bidUn(type="text", name="bidUn", placeholder="NUN B Indo", required)
+                .form-group.col-sm-3
+                  input.form-control.req#mtkUn(type="text", name="mtkUn", placeholder="NUN Matematik", required)
+                .form-group.col-sm-3
+                  input.form-control.req#ipaUn(type="text", name="ipaUn", placeholder="NUN IPA", required)
+                .form-group.col-sm-3
+                  input.form-control.req#enUn(type="text", name="enUn", placeholder="NUN B Inggris", required)
+
+              h3 Nilai Akhir
+
+              .row
+                .form-group.col-sm-3
+                  input.form-control.req#bidNa(type="text", name="bidNa", placeholder="NA B Indo", required)
+                .form-group.col-sm-3
+                  input.form-control.req#mtkNa(type="text", name="mtkNa", placeholder="NA Matematik", required)
+                .form-group.col-sm-3
+                  input.form-control.req#ipaNa(type="text", name="ipaNa", placeholder="NA IPA", required)
+                .form-group.col-sm-3
+                  input.form-control.req#enNa(type="text", name="enNa", placeholder="NA B Inggris", required)
+
+          .panel-footer
+            .btn-group
+              button.btn.btn-warning#prev(type="button") Kembali
+              button.btn.btn-success#next(type="button") Lanjut
+
+        .row-fluid
+          button.btn.btn-danger.center-block#btnSubmit(type="submit") Simpan
+
+
+  #profilKomkal
+    .container
+      .profilKomKal
+        h2.text-center(style="border-bottom: solid 1px #ccc; width: 50%;") Profil Kompetensi Keahlian
+        .box-komkal
+          a(href="http://tkj.smkn10-mlg.sch.id")
+            svg(height="100px", width="100px")
+              circle(stroke="white", stroke-width="2", cx=50, cy=50, r=40, fill="#2198d8")
+              text(x="35" y="55" fill="white") TKJ
+          a(href="http://mm.smkn10-mlg.sch.id")
+            svg(height="100px", width="100px")
+              circle(stroke="white", stroke-width="2", cx=50, cy=50, r=40, fill="#36699c")
+              text(x="35" y="55" fill="white") MM
+          a(href="http://tkr.smkn10-mlg.sch.id")
+            svg(height="100px", width="100px")
+              circle(stroke="white", stroke-width="2", cx=50, cy=50, r=40, fill="red")
+              text(x="35" y="55" fill="white") TKR
+          a(href="http://otr.smkn10-mlg.sch.id")
+            svg(height="100px", width="100px")
+              circle(stroke="white", stroke-width="2", cx=50, cy=50, r=40, fill="#557677")
+              text(x="35" y="55" fill="white") OTR
+          a(href="http://tsm.smkn10-mlg.sch.id")
+            svg(height="100px", width="100px")
+              circle(stroke="white", stroke-width="2", cx=50, cy=50, r=40, fill="#454343")
+              text(x="35" y="55" fill="white") TSM
+
+
+
+  .page#kontak
+
+
+  .modal.fade#modalDaftar(role="dialog")
+    .modal-dialog
+      .modal-content(style ="color: #333")
+        .modal-header
+          button.close(type="button", data-dismiss="modal") &times;
+          h4.modal-title Informasi
+        .modal-body
+          p#modal-text
+        .modal-footer
+          button.btn.btn-primary(type="button", data-dismiss="modal") Ok

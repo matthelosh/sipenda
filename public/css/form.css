@@ -1,0 +1,51 @@
+.formPage{
+
+  min-height: 100vh;
+  height: auto;
+  background: url('/static/img/bg_form.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.formPage .container{
+  background: rgba(87,170,100, 0.85);
+  background-attachment: fixed;
+  min-height: 100vh;
+  height: auto;
+  position: relative;
+  margin: 0!important;
+  width: 100%;
+  padding: 50px;
+}
+
+
+.step{
+  height: 100px;
+  background: pink;
+}
+
+#frmDepan .form-control{
+  height: 50px !important;
+}
+#frmAddSiswa .form-control {
+
+  border-radius: 0 !important;
+  border: 1px dashed #aaa;
+}
+
+#frmAddSiswa .form-control:focus{
+  background: #f1e688;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+#frmAddSiswa .form-control placeholder]{
+  color: red;
+}
+#frmAddSiswa .form-control{
+  background-color: rgba(255,255,255,0.7);
+  color: #666;
+}
+.error{
+  color: red;
+}

@@ -1,0 +1,15 @@
+extends template
+block content
+
+  .detilPage
+    .container
+      h1 #{title}
+      .col-sm-4(style="background: pink")
+        .content
+          .photoFrame
+            img(src="/static/img/PD/default.png").img
+          .photoDesc
+            h3 #{data.nama}
+      .col-sm-8(style="background: orange")
+        .content
+          h3 NISN: #{data.nisn}
